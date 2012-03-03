@@ -103,7 +103,7 @@ cvDestroyWindow("mainWin");
 int main(int argc, char *argv[])
 {
 
-char filename[13] = "infile.avi";
+char filename[13] = "cam0.avi";
 
 Video_to_image(filename); //视频转图片
 
