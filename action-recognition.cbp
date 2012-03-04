@@ -32,7 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="cvinclude.h" />
+		<Unit filename="include/CForeground.h" />
+		<Unit filename="include/CForegroundExtractMethod.h" />
+		<Unit filename="include/CSimleMethod.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/CForeground.cpp" />
+		<Unit filename="src/CForegroundExtractMethod.cpp" />
+		<Unit filename="src/CSimleMethod.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />

@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1330855936 source:/home/hcl/action-recognition/main.cpp
+	<iostream>
+	"cvinclude.h"
+	"include/CForeground.h"
+	"include/CSimleMethod.h"
+
+1330854958 /home/hcl/action-recognition/cvinclude.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<cv.h>
+	<highgui.h>
+
+1330855899 /home/hcl/action-recognition/include/CForeground.h
+	"CForegroundExtractMethod.h"
+
+1330855441 /home/hcl/action-recognition/include/CForegroundExtractMethod.h
+	"../cvinclude.h"
+
+1330855300 /home/hcl/action-recognition/include/CSimleMethod.h
+	"CForegroundExtractMethod.h"
+
+1330855997 source:/home/hcl/action-recognition/src/CForeground.cpp
+	"../include/CForeground.h"
+
+1330855512 source:/home/hcl/action-recognition/src/CForegroundExtractMethod.cpp
+	"../include/CForegroundExtractMethod.h"
+
+1330855533 source:/home/hcl/action-recognition/src/CSimleMethod.cpp
+	"../include/CSimleMethod.h"
+
