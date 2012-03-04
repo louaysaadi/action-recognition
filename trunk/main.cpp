@@ -7,11 +7,10 @@ using namespace std;
 // Video_to_image()函数将AVI视频文件读入，将每一帧存储为jpg文件.
 //
 ////////////////////////////////////////////////////////////////////////
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <cv.h>
-#include <highgui.h>
+#include "cvinclude.h"
+////////////////////////////////////////////////////////////////////////
+#include "include/CForeground.h"
+#include "include/CSimleMethod.h"
 
 #define NUM_FRAME 1654 //只处理前300帧，根据视频帧数可修改
 
@@ -22,7 +21,11 @@ void Video_to_image(char* filename)
 
     //初始化一个视频文件捕捉器
     CvCapture* capture = cvCaptureFromAVI(filename);
-
+    if( !capture )
+    {
+        printf( "Failed to open vedo:%s\n", filename );
+        exit( -1 );
+    }
     //获取视频信息
     cvQueryFrame(capture);
     int frameH    = (int) cvGetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT);
@@ -33,16 +36,22 @@ void Video_to_image(char* filename)
 
     //定义和初始化变量
     int i = 0;
-    IplImage* img = 0;
+    IplImage* img = 0, * grd = 0;
     char image_name[13];
 
     cvNamedWindow( "mainWin", CV_WINDOW_AUTOSIZE );
+
+    grd = cvQueryFrame( capture);
+    CSimleMethod sm;
+    CForeground fg( grd );
 
     //读取和显示
     while(1)
     {
 
        img = cvQueryFrame(capture); //获取一帧图片
+       //extract the foreground
+       img = fg.getForeground( sm, img );
        cvShowImage( "mainWin", img ); //将其显示
        char key = cvWaitKey(20);
 
@@ -51,7 +60,7 @@ void Video_to_image(char* filename)
        cvSaveImage( image_name, img);   //保存一帧图片
 
 
-       if(i == NUM_FRAME) break;
+       if(i == NUM_FRAME - 1) break;
     }
 
     cvReleaseCapture(&capture);
@@ -80,7 +89,7 @@ void Image_to_video()
     //创建窗口
     cvNamedWindow( "mainWin", CV_WINDOW_AUTOSIZE );
 
-    while(i<NUM_FRAME)
+    while(i < NUM_FRAME - 1)
     {
        sprintf(image_name, "%s%d%s", "image", ++i, ".jpg");
        img = cvLoadImage(image_name);
