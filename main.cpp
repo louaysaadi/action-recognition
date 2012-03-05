@@ -12,7 +12,7 @@ using namespace std;
 #include "include/CForeground.h"
 #include "include/CSimleMethod.h"
 
-#define NUM_FRAME 1654 //只处理前300帧，根据视频帧数可修改
+#define NUM_FRAME 1000 //处理前300帧，根据视频帧数可修改
 
 
 void Video_to_image(char* filename)
@@ -26,41 +26,47 @@ void Video_to_image(char* filename)
         printf( "Failed to open vedo:%s\n", filename );
         exit( -1 );
     }
+    //定义和初始化变量
+    int i = 0;
+    IplImage * img = 0, * grd = 0, * proimg = 0;
+    char image_name[13];
+
+    CSimleMethod sm;
+
     //获取视频信息
-    cvQueryFrame(capture);
+    grd = cvCloneImage( cvQueryFrame(capture) );
     int frameH    = (int) cvGetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT);
     int frameW    = (int) cvGetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH);
     int fps       = (int) cvGetCaptureProperty(capture, CV_CAP_PROP_FPS);
     int numFrames = (int) cvGetCaptureProperty(capture, CV_CAP_PROP_FRAME_COUNT);
     printf("\tvideo height : %d\n\tvideo width : %d\n\tfps : %d\n\tframe numbers : %d\n", frameH, frameW, fps, numFrames);
 
-    //定义和初始化变量
-    int i = 0;
-    IplImage* img = 0, * grd = 0;
-    char image_name[13];
-
+    //create a window named "mainWin"
     cvNamedWindow( "mainWin", CV_WINDOW_AUTOSIZE );
-
-    grd = cvQueryFrame( capture);
-    CSimleMethod sm;
+    cvShowImage( "mainWin", grd );
     CForeground fg( grd );
-
     //读取和显示
-    while(1)
+    for( i = 1; i < NUM_FRAME ; i++ )
     {
 
        img = cvQueryFrame(capture); //获取一帧图片
        //extract the foreground
-       img = fg.getForeground( sm, img );
-       cvShowImage( "mainWin", img ); //将其显示
+
+       if( proimg )
+       {
+            cvReleaseImage( &proimg );
+       }
+
+       proimg = cvCloneImage( img );
+
+       proimg = fg.getForeground( sm, proimg );
+       cvShowImage( "mainWin", proimg ); //将其显示
        char key = cvWaitKey(20);
 
-       sprintf(image_name, "%s%d%s", "image", ++i, ".jpg");//保存的图片名
+       //sprintf(image_name, "%s%d%s", "image", i, ".jpg");//保存的图片名
 
-       cvSaveImage( image_name, img);   //保存一帧图片
+       //cvSaveImage( image_name, img);   //保存一帧图片
 
-
-       if(i == NUM_FRAME - 1) break;
     }
 
     cvReleaseCapture(&capture);
@@ -116,7 +122,7 @@ int main(int argc, char *argv[])
 
     Video_to_image(filename); //视频转图片
 
-    Image_to_video();    //图片转视频
+    //Image_to_video();    //图片转视频
 
     return 0;
 }
