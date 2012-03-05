@@ -30,3 +30,31 @@
 1330944520 source:/home/hcl/action-recognition/src/CSimleMethod.cpp
 	"../include/CSimleMethod.h"
 
+1330953979 source:/home/hcl/trunk/main.cpp
+	<iostream>
+	"cvinclude.h"
+	"include/CForeground.h"
+	"include/CSimleMethod.h"
+
+1330953979 /home/hcl/trunk/cvinclude.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<cv.h>
+	<highgui.h>
+
+1330953979 /home/hcl/trunk/include/CForeground.h
+	"CForegroundExtractMethod.h"
+
+1330953979 /home/hcl/trunk/include/CForegroundExtractMethod.h
+	"../cvinclude.h"
+
+1330953979 /home/hcl/trunk/include/CSimleMethod.h
+	"CForegroundExtractMethod.h"
+
+1330953979 source:/home/hcl/trunk/src/CForeground.cpp
+	"../include/CForeground.h"
+
+1330953979 source:/home/hcl/trunk/src/CForegroundExtractMethod.cpp
+	"../include/CForegroundExtractMethod.h"
+
