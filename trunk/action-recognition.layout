@@ -5,24 +5,24 @@
 		<Cursor position="155" topLine="0" />
 	</File>
 	<File name="include/CForeground.h" open="1" top="0" tabpos="2">
-		<Cursor position="299" topLine="0" />
+		<Cursor position="349" topLine="0" />
 	</File>
-	<File name="include/CForegroundExtractMethod.h" open="0" top="0" tabpos="4">
-		<Cursor position="85" topLine="0" />
+	<File name="include/CForegroundExtractMethod.h" open="1" top="0" tabpos="7">
+		<Cursor position="433" topLine="0" />
 	</File>
 	<File name="include/CSimleMethod.h" open="1" top="0" tabpos="6">
-		<Cursor position="369" topLine="0" />
+		<Cursor position="524" topLine="0" />
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="777" topLine="22" />
+		<Cursor position="3474" topLine="106" />
 	</File>
 	<File name="src/CForeground.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="204" topLine="0" />
+		<Cursor position="244" topLine="0" />
 	</File>
 	<File name="src/CForegroundExtractMethod.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="21" topLine="0" />
 	</File>
 	<File name="src/CSimleMethod.cpp" open="1" top="1" tabpos="4">
-		<Cursor position="137" topLine="27" />
+		<Cursor position="1364" topLine="24" />
 	</File>
 </CodeBlocks_layout_file>

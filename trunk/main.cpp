@@ -28,13 +28,14 @@ void Video_to_image(char* filename)
     }
     //定义和初始化变量
     int i = 0;
-    IplImage * img = 0, * grd = 0, * proimg = 0;
+    IplImage * img = 0, * grd1 = 0,* grd2 = 0, * proimg = 0;
     char image_name[13];
 
     CSimleMethod sm;
 
     //获取视频信息
-    grd = cvCloneImage( cvQueryFrame(capture) );
+    grd1 = cvCloneImage( cvQueryFrame(capture) );
+    grd2 = cvCloneImage( cvQueryFrame(capture) );
     int frameH    = (int) cvGetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT);
     int frameW    = (int) cvGetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH);
     int fps       = (int) cvGetCaptureProperty(capture, CV_CAP_PROP_FPS);
@@ -43,14 +44,15 @@ void Video_to_image(char* filename)
 
     //create a window named "mainWin"
     cvNamedWindow( "mainWin", CV_WINDOW_AUTOSIZE );
-    cvShowImage( "mainWin", grd );
-    CForeground fg( grd );
+    cvShowImage( "mainWin", grd1 );
+    CForeground fg( grd1, grd2 );
     //读取和显示
     for( i = 1; i < NUM_FRAME ; i++ )
     {
 
        img = cvQueryFrame(capture); //获取一帧图片
        //extract the foreground
+
 
        if( proimg )
        {
