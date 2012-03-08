@@ -5,12 +5,13 @@
 class CForeground
 {
     public:
-        CForeground( const IplImage * grd);
+        CForeground( IplImage * grd);
+        CForeground( IplImage *grd1, IplImage * grd2 );
         virtual ~CForeground();
 
         IplImage * getForeground( CForegroundExtractMethod & em , IplImage * img );
     protected:
-        const IplImage * grd;
+        IplImage * grd1, *grd2;
     private:
 };
 

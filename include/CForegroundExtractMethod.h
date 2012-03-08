@@ -8,6 +8,7 @@ class CForegroundExtractMethod
         CForegroundExtractMethod();
         virtual ~CForegroundExtractMethod();
         virtual IplImage * extractForeground( IplImage * img, const IplImage * grd ) = 0;
+        virtual IplImage * extractForeground( IplImage * img, const IplImage * grd, const IplImage * difGrd) = 0;
     protected:
     private:
 };

@@ -43,18 +43,21 @@
 	<cv.h>
 	<highgui.h>
 
-1330953979 /home/hcl/trunk/include/CForeground.h
+1331209641 /home/hcl/trunk/include/CForeground.h
 	"CForegroundExtractMethod.h"
 
-1330953979 /home/hcl/trunk/include/CForegroundExtractMethod.h
+1331204830 /home/hcl/trunk/include/CForegroundExtractMethod.h
 	"../cvinclude.h"
 
-1330953979 /home/hcl/trunk/include/CSimleMethod.h
+1331209429 /home/hcl/trunk/include/CSimleMethod.h
 	"CForegroundExtractMethod.h"
 
-1330953979 source:/home/hcl/trunk/src/CForeground.cpp
+1331211254 source:/home/hcl/trunk/src/CForeground.cpp
 	"../include/CForeground.h"
 
 1330953979 source:/home/hcl/trunk/src/CForegroundExtractMethod.cpp
 	"../include/CForegroundExtractMethod.h"
+
+1331211856 source:/home/hcl/trunk/src/CSimleMethod.cpp
+	"../include/CSimleMethod.h"
 
