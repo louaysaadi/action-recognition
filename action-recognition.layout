@@ -13,8 +13,8 @@
 	<File name="include/CSimleMethod.h" open="1" top="0" tabpos="6">
 		<Cursor position="524" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="3474" topLine="106" />
+	<File name="main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="6723" topLine="239" />
 	</File>
 	<File name="src/CForeground.cpp" open="1" top="0" tabpos="3">
 		<Cursor position="244" topLine="0" />
@@ -22,7 +22,7 @@
 	<File name="src/CForegroundExtractMethod.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="21" topLine="0" />
 	</File>
-	<File name="src/CSimleMethod.cpp" open="1" top="1" tabpos="4">
-		<Cursor position="1364" topLine="24" />
+	<File name="src/CSimleMethod.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="906" topLine="12" />
 	</File>
 </CodeBlocks_layout_file>
