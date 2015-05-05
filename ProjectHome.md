@@ -1,0 +1,1 @@
+I try to create a program with c and C++ to recognize human action with opencv. It is robust to shadow and illumination.
